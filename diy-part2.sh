@@ -71,3 +71,25 @@ sed -i "s/wireless.radio\${devidx}.disabled=1/wireless.radio\${devidx}.disabled=
 cp -a $GITHUB_WORKSPACE/configfiles/coremark/* package/base-files/files/bin/
 chmod 755 package/base-files/files/bin/coremark
 chmod 755 package/base-files/files/bin/coremark.sh
+
+
+
+
+rm -f target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
+cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
+
+
+# 增加nsy-g68-plus
+echo -e "\\ndefine Device/nsy_g68-plus
+\$(call Device/rk3568)
+  DEVICE_VENDOR := NSY
+  DEVICE_MODEL := G68PLUS
+  DEVICE_DTS := rk3568-nsy-g68-plus1
+  SUPPORTED_DEVICES += nsy,g68-plus
+  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig
+endef
+TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
+
+
+
+cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-plus1.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g68-plus1.dts
