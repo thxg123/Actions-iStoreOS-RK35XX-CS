@@ -570,7 +570,7 @@
 };
 
 &uart2 {
-	status = "okay";
+	status = "disabled";
 };
 
 &usb_host0_ehci {
