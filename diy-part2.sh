@@ -75,8 +75,17 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 
 
-rm -f target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
-cp -f $GITHUB_WORKSPACE/configfiles/init.sh target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
+
+wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.zip
+
+unzip -o rtl8367b.zip target/*
+
+
+
+# patch -p1 < 945-add-rtl8367s-sgmii-support.patch
+
+# rm -f target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
+# cp -f $GITHUB_WORKSPACE/configfiles/init.sh target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 
 rm -f target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
 cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
@@ -87,7 +96,7 @@ echo -e "\\ndefine Device/nsy_g68-plus
 \$(call Device/rk3568)
   DEVICE_VENDOR := NSY
   DEVICE_MODEL := G68PLUS
-  DEVICE_DTS := rk3568-nsy-g68-plus1
+  DEVICE_DTS := rk3568-nsy-istoreos
   SUPPORTED_DEVICES += nsy,g68-plus
   DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig
 endef
