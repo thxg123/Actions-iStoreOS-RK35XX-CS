@@ -76,6 +76,13 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 
 
+
+rm -f target/linux/generic/hack-5.10/747-1-rtl8367b-support-rtl8367s.patch
+rm -f target/linux/generic/hack-5.10/747-2-rtl8366_smi-phy-id.patch
+rm -f target/linux/generic/hack-5.10/744-rtl8366_smi-fix-ce-debugfs.patch
+
+
+
 # wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
 
 # tar -xvf rtl8367b.tar.gz
