@@ -111,5 +111,5 @@ TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-istoreos.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-istoreos.dts
-# cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-plus1.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g68-plus1.dts
+＃ cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-istoreos.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-istoreos.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-plus1.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g68-plus1.dts
