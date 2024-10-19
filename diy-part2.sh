@@ -76,9 +76,9 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 
 
-wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.zip
+wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
 
-unzip -o rtl8367b.zip target/*
+tar -xvf rtl8367b.tar.gz
 
 
 
