@@ -1519,7 +1519,13 @@
 		clock-names = "pwm\0pclk";
 		status = "okay";
 	};
-
+	pwm1 {
+			pwm1m0-pins {
+				rockchip,pins = <0x00 0x10 0x01 0x131>;
+				phandle = <0x40>;
+			};
+		};
+		
 	pwm@fdd70020 {
 		compatible = "rockchip,rk3568-pwm\0rockchip,rk3328-pwm";
 		reg = <0x00 0xfdd70020 0x00 0x10>;
@@ -1531,6 +1537,13 @@
 		status = "okay";
 	};
 
+	pwm2 {
+			pwm2m0-pins {
+				rockchip,pins = <0x00 0x11 0x01 0x131>;
+				phandle = <0x41>;
+			};
+		};
+		
 	pwm@fdd70030 {
 		compatible = "rockchip,rk3568-pwm\0rockchip,rk3328-pwm";
 		reg = <0x00 0xfdd70030 0x00 0x10>;
@@ -1542,6 +1555,14 @@
 		clock-names = "pwm\0pclk";
 		status = "okay";
 	};
+
+	pwm3 {
+			pwm3-pins {
+				rockchip,pins = <0x00 0x12 0x01 0x131>;
+				phandle = <0x42>;
+			};
+		};
+
 
 	power-management@fdd90000 {
 		compatible = "rockchip,rk3568-pmu\0syscon\0simple-mfd";
@@ -2312,7 +2333,7 @@
 		snps,axi-config = <0x7d>;
 		snps,mtl-rx-config = <0x7e>;
 		snps,mtl-tx-config = <0x7f>;
-		status = "okay";
+		status = "disabled";
 		phy-mode = "rgmii";
 		clock_in_out = "output";
 		snps,reset-gpio = <0x80 0x09 0x01>;
@@ -5045,30 +5066,11 @@
 			};
 		};
 
-		pwm1 {
+		
 
-			pwm1m0-pins {
-				rockchip,pins = <0x00 0x10 0x01 0x131>;
-				phandle = <0x40>;
-			};
-		};
+		
 
-		pwm2 {
-
-			pwm2m0-pins {
-				rockchip,pins = <0x00 0x11 0x01 0x131>;
-				phandle = <0x41>;
-			};
-		};
-
-		pwm3 {
-
-			pwm3-pins {
-				rockchip,pins = <0x00 0x12 0x01 0x131>;
-				phandle = <0x42>;
-			};
-		};
-
+		
 		pwm4 {
 
 			pwm4-pins {
@@ -5890,6 +5892,9 @@
 		regulator-max-microvolt = <0x155cc0>;
 		regulator-always-on;
 		regulator-boot-on;
+		regulator-enable-ramp-delay = <300>;
+		regulator-ramp-delay = <8000>;
+
 		phandle = <0x05>;
 	};
 
@@ -5922,7 +5927,11 @@
 	rtlgsw@0 {
 		compatible = "realtek,rtl8367b";
 		realtek,mdio = <0x158>;
-		realtek,id = <0x00>;
+		mii-bus = <0x158>;
+		realtek,id = <0x1d>;
+		phy-id = <0x1d>;
+		cpu_port = <0x07>;
+		realtek,extif = <0x07 0x00 0x00 0x01 0x01 0x01 0x01 0x01 0x01 0x02>;
 		status = "okay";
 	};
 };
