@@ -2333,7 +2333,7 @@
 		snps,axi-config = <0x7d>;
 		snps,mtl-rx-config = <0x7e>;
 		snps,mtl-tx-config = <0x7f>;
-		status = "disabled";
+		status = "okay";
 		phy-mode = "rgmii";
 		clock_in_out = "output";
 		snps,reset-gpio = <0x80 0x09 0x01>;
