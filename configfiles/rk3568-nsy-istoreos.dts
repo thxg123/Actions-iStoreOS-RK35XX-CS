@@ -2353,6 +2353,7 @@
 			compatible = "snps,dwmac-mdio";
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
+			status = "okay";
 
 			phy@0 {
 				compatible = "ethernet-phy-ieee802.3-c22";
@@ -3238,6 +3239,7 @@
 			compatible = "snps,dwmac-mdio";
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
+			status = "okay";
 			phandle = <0x158>;
 		};
 
