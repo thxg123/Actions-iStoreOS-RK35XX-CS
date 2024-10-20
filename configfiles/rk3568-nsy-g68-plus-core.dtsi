@@ -485,7 +485,7 @@ rk809: pmic@20 {
 
 	};
 	
-	&pinctrl {
+&pinctrl {
 	pmic {
 		pmic_int: pmic_int {
 			rockchip,pins =
@@ -499,19 +499,18 @@ rk809: pmic@20 {
 
 		soc_slppin_slp: soc_slppin_slp {
 			rockchip,pins =
-				<0 RK_PA2 RK_FUNC_1 &pcfg_pull_up>;
+				<0 RK_PA2 1 &pcfg_pull_up>;
 		};
 
 		soc_slppin_rst: soc_slppin_rst {
 			rockchip,pins =
-				<0 RK_PA2 RK_FUNC_2 &pcfg_pull_none>;
+				<0 RK_PA2 2 &pcfg_pull_none>;
 		};
-
 		spk_ctl_gpio: spk_ctl_gpio {
 			rockchip,pins = <3 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
-	
+
 	usb {
 		vcc5v0_host_en: vcc5v0-host-en {
 			rockchip,pins = <0 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
@@ -521,7 +520,7 @@ rk809: pmic@20 {
 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	 };
-	};
+};
 	
 	sdio_pwrseq: sdio-pwrseq {
 		compatible = "mmc-pwrseq-simple";
