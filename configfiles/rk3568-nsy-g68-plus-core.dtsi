@@ -877,7 +877,7 @@ rk809: pmic@20 {
 
 	phy-handle = <&rgmii_phy1>;
 	phy-supply = <&vcc_phy>;
-	status = "disabled";
+	status = "okay";
 };
 
 /*
