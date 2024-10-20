@@ -88,8 +88,7 @@ rm -f target/linux/generic/hack-5.10/744-rtl8366_smi-fix-ce-debugfs.patch
 # tar -xvf rtl8367b.tar.gz
 
 
-
-# patch -p1 < 945-add-rtl8367s-sgmii-support.patch
+patch -p1 < $GITHUB_WORKSPACE/configfiles/945-add-rtl8367s-sgmii-support.patch
 
 # rm -f target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 # cp -f $GITHUB_WORKSPACE/configfiles/init.sh target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
