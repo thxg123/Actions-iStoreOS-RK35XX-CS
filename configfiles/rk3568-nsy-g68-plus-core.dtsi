@@ -551,7 +551,7 @@ rk809: pmic@20 {
 */	
     //wifi
     wireless_wlan: wireless-wlan {
-        compatible = "wlan-platdata";    
+        compatible = "wlan-platdata";   
         wifi_chip_type = "ap6398s";
         rockchip,grf = <&grf>;
         WIFI,poweren_gpio = <&gpio2 RK_PD1 GPIO_ACTIVE_LOW>;
@@ -734,15 +734,16 @@ rk809: pmic@20 {
 };
 
 
-&usbhost_dwc3 { 
-    status = "okay"; 
+&usbhost_dwc3 {
+    status = "okay";
 };
 
 
 /* 对应lede combphy1 */
-&combphy1_usq { 
-//    rockchip,dis-u3otg1-port; 
-    status = "okay"; 
+&combphy1_usq {
+//    rockchip,dis-u3otg1-port;
+    rockchip,sgmii-mac-sel = <1>;
+    status = "okay";
 };
 
 &sata0 {
@@ -753,7 +754,7 @@ rk809: pmic@20 {
     status = "disabled";
 };
 
-/* PCIE 
+/* PCIE
 &combphy2_psq {
 	status = "okay";
 };
