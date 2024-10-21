@@ -1,0 +1,115 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=12
+
+board_name() {
+    [ -e /tmp/sysinfo/board_name ] && cat /tmp/sysinfo/board_name || echo "generic"
+}
+
+start() {
+    local board=$(board_name)
+    case "$board" in
+        nsy,g68-plus)
+            if ! [ -s /opt/swconfig_lock.ini ]; then
+                echo "true" > /opt/swconfig_lock.ini
+                cat <<EOF > /etc/config/network
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+ 
+config globals 'globals'
+	option ula_prefix 'fd27:70fa:5c1d::/48'
+ 
+config device 'lan_br'
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'eth0.1'
+ 
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option ipaddr '192.168.200.1'
+ 
+config interface 'wan'
+	option device 'eth0.2'
+	option proto 'dhcp'
+ 
+config interface 'wan6'
+	option device 'eth0.2'
+	option proto 'dhcpv6'
+ 
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+ 
+config switch_vlan
+	option device 'switch0'
+	option vlan '1'
+	option ports '0 1 2 3 7t'
+ 
+config switch_vlan
+	option device 'switch0'
+	option vlan '2'
+	option ports '4 7t'
+EOF
+
+cat <<EOF > /etc/config/dhcp
+
+config dnsmasq
+        option domainneeded '1'
+        option boguspriv '1'
+        option filterwin2k '0'
+        option localise_queries '1'
+        option rebind_protection '1'
+        option rebind_localhost '1'
+        option local '/lan/'
+        option domain 'lan'
+        option expandhosts '1'
+        option nonegcache '0'
+        option cachesize '1000'
+        option authoritative '1'
+        option readethers '1'
+        option leasefile '/tmp/dhcp.leases'
+        option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+        option nonwildcard '1'
+        option localservice '1'
+        option ednspacket_max '1232'
+        option filter_aaaa '1'
+        option filter_a '0'
+
+config dhcp 'lan'
+        option interface 'lan'
+        option start '100'
+        option limit '150'
+        option leasetime '12h'
+        option dhcpv4 '1'
+        option dhcpv6 '1'
+
+config dhcp 'wan'
+        option interface 'wan'
+        option ignore '1'
+
+config odhcpd 'odhcpd'
+        option maindhcp '0'
+        option leasefile '/tmp/hosts/odhcpd'
+        option leasetrigger '/usr/sbin/odhcpd-update'
+        option loglevel '4'
+EOF
+                /etc/init.d/network restart
+                /etc/init.d/dnsmasq restart
+                echo "交换机初始化OK, 4wlan 1an,最右边端口为wlan"
+            else
+                echo "网络配置文件已初始化过，不再重复执行"
+            fi
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
