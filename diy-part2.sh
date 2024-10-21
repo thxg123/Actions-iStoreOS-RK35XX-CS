@@ -83,9 +83,15 @@ rm -f target/linux/generic/hack-5.10/744-rtl8366_smi-fix-ce-debugfs.patch
 
 
 
-# wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
+# 电工大佬的rtl8367b驱动补丁，暂时使用这样替换
+wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
+tar -xvf rtl8367b.tar.gz
 
-# tar -xvf rtl8367b.tar.gz
+
+# openwrt主线rtl8367b驱动补丁，暂时使用这样替换
+# wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b-openwrt.tar.gz
+# tar -xvf rtl8367b-openwrt.tar.gz
+
 
 
 # patch -p1 < $GITHUB_WORKSPACE/configfiles/945-add-rtl8367s-sgmii-support.patch
