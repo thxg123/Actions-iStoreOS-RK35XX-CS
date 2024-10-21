@@ -83,9 +83,9 @@ rm -f target/linux/generic/hack-5.10/744-rtl8366_smi-fix-ce-debugfs.patch
 
 
 
-wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
+# wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
 
-tar -xvf rtl8367b.tar.gz
+# tar -xvf rtl8367b.tar.gz
 
 
 # patch -p1 < $GITHUB_WORKSPACE/configfiles/945-add-rtl8367s-sgmii-support.patch
@@ -110,6 +110,7 @@ TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
 
 
 
+cp -f $GITHUB_WORKSPACE/configfiles/rk3568-demo-rtl8367s.dts target/linux/rockchip/dts/rk3568/rk3568-demo-rtl8367s.dts
 cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-istoreos.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-istoreos.dts
 # cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-plus1.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g68-plus1.dts
 
