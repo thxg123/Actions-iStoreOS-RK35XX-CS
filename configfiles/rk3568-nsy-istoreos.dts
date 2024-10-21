@@ -5923,18 +5923,26 @@
 	};
 
 	rtlgsw@0 {
-		//compatible = "realtek,rtl8367s";
-		compatible = "realtek,rtl8367b";
+		compatible = "realtek,rtl8367b", "realtek,rtl8367s";
 		realtek,mdio = <0x158>;
 		mii-bus = <0x158>;
 		realtek,id = <29>;
 		phy-id = <29>;
 		cpu_port = <0x07>;
-		//0延迟
-		realtek,extif = <7 0 0 1 1 1 1 1 1 2>;
-		//realtek,extif = <7 1 0 1 1 1 1 1 1 2>;
-		//realtek,extif1 = <0x01 0x00 0x0c 0x01 0x01 0x01 0x01 0x01 0x04>;
-		//realtek,extif2 = <0x01 0x03 0x01 0x01 0x01 0x01 0x01 0x01 0x02>;
+
+		//======================================================
+		//对于主线op的设备树书写方式
+		//realtek,extif = <7 0 0 1 1 1 1 1 1 2>;
+		//======================================================
+		//延迟为0,否则网络很卡.
+		//realtek,extif = <7 0 0 1 1 1 1 1 1 2>;
+		//realtek,extif1 = <7 0 0 1 1 1 1 1 1 2>;
+		//txdelay, rxdelay, mode, ability.force_mode, ability.txpause, ability.rxpause, ability.link, ability.duplex, speed
+
+		//sgmii,
+		realtek,extif1 = <0 0 11 1 1 1 1 1 2>;
+		//rgmii
+		realtek,extif2 = <0 0 1 1 1 1 1 1 2>;
 		status = "okay";
 	};
 };
