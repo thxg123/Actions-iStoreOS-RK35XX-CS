@@ -535,6 +535,14 @@
 		};
 	};
 
+	leds {
+		compatible = "gpio-leds";
+		work {
+			gpios = <0x34 0x10 0x00>;
+			linux,default-trigger = "heartbeat";
+		};
+	};
+
 	arm-pmu {
 		compatible = "arm,cortex-a55-pmu\0arm,armv8-pmuv3";
 		interrupts = <0x00 0xe4 0x04 0x00 0xe5 0x04 0x00 0xe6 0x04 0x00 0xe7 0x04>;
