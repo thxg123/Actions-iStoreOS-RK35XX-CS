@@ -37,6 +37,7 @@ jobs:
            sed -i "s/CONFIG_PACKAGE_kmod-swconfig=m/CONFIG_PACKAGE_kmod-swconfig=y/" ./rk35xx/.config
            sed -i "s/CONFIG_PACKAGE_kmod-switch-rtl8366-smi=m/CONFIG_PACKAGE_kmod-switch-rtl8366-smi=y/" ./rk35xx/.config
            sed -i "s/CONFIG_PACKAGE_kmod-switch-rtl8367b=m/CONFIG_PACKAGE_kmod-switch-rtl8367b=y/" ./rk35xx/.config
+           sed -i "s/CONFIG_PACKAGE_swconfig=m/CONFIG_PACKAGE_swconfig=y/" ./rk35xx/.config
            echo -e "\\n$configdata" >> ./rk35xx/.config
            # 清除.config配置文件里面重复的配置项
            configdata2=$(cat ./rk35xx/.config)
