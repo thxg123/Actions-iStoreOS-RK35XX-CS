@@ -79,8 +79,8 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 
 # 加入nsy_g68-plus初始化网络配置脚本
-# cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
-# chmod 755 package/base-files/files/etc/init.d/swconfig_install
+cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
+chmod 755 package/base-files/files/etc/init.d/swconfig_install
 
 
 
@@ -116,8 +116,8 @@ tar -xvf rtl8367b.tar.gz
 # rm -f target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 # cp -f $GITHUB_WORKSPACE/configfiles/init.sh target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 
-rm -f target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
-cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
+# rm -f target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
+# cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
 
 
 # 增加nsy-g68-plus
