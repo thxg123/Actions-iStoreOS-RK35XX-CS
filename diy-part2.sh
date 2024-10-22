@@ -79,8 +79,8 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 
 # 加入nsy_g68-plus初始化网络配置脚本
-cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
-chmod 755 package/base-files/files/etc/init.d/swconfig_install
+# cp -f $GITHUB_WORKSPACE/configfiles/swconfig_install package/base-files/files/etc/init.d/swconfig_install
+# chmod 755 package/base-files/files/etc/init.d/swconfig_install
 
 
 
