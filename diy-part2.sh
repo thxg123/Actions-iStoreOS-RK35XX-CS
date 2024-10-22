@@ -84,7 +84,16 @@ chmod 755 package/base-files/files/bin/coremark.sh
 
 
 
-＃ 删除会导致编译失败的补丁
+
+# 集成 nsy_g68-plus WiFi驱动
+mkdir -p package/base-files/files/lib/firmware/mediatek
+cp -f $GITHUB_WORKSPACE/configfiles/mt7915_eeprom.bin package/base-files/files/lib/firmware/mediatek/mt7915_eeprom.bin
+cp -f $GITHUB_WORKSPACE/configfiles/mt7916_eeprom.bin package/base-files/files/lib/firmware/mediatek/mt7916_eeprom.bin
+
+
+
+
+# 删除会导致编译失败的补丁
 rm -f target/linux/generic/hack-5.10/747-1-rtl8367b-support-rtl8367s.patch
 rm -f target/linux/generic/hack-5.10/747-2-rtl8366_smi-phy-id.patch
 rm -f target/linux/generic/hack-5.10/744-rtl8366_smi-fix-ce-debugfs.patch
