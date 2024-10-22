@@ -12,7 +12,6 @@ start() {
     case "$board" in
         nsy,g68-plus)
             if ! [ -s /opt/swconfig_lock.ini ]; then
-                echo "true" > /opt/swconfig_lock.ini
                 cat <<EOF > /etc/config/network
 config interface 'loopback'
 	option device 'lo'
@@ -104,6 +103,8 @@ EOF
                 /etc/init.d/network restart
                 /etc/init.d/dnsmasq restart
                 echo "交换机初始化OK, 4wlan 1an,最右边端口为wlan"
+                sleep 1
+                echo "true" > /opt/swconfig_lock.ini
             else
                 echo "网络配置文件已初始化过，不再重复执行"
             fi
