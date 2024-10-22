@@ -104,6 +104,7 @@ EOF
 cat <<EOF > /etc/config/swconfig_lock
 true / 交换机初始化OK, 4wlan 1an,最右边端口为wlan
 EOF
+                sleep 1
                 /etc/init.d/network restart
                 /etc/init.d/dnsmasq restart
                 echo "交换机初始化OK, 4wlan 1an,最右边端口为wlan"
