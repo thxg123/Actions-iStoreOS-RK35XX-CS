@@ -5,7 +5,7 @@
 	interrupt-parent = <0x01>;
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
-	model = "NSY-G68-PLUS AX3000 Router";
+	model = "NSY-G68 AX3000 Router";
 
 	ddr3-params {
 		version = <0x100>;
