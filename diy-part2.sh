@@ -59,7 +59,7 @@ chmod 755 package/base-files/files/bin/ubus-examine.sh
 
 
 
-#集成黑豹X2和荐片TV盒子无线功能并且开启无线功能
+#集成黑豹X2和荐片TV盒子WiFi驱动并且开启无线功能
 cp -a $GITHUB_WORKSPACE/configfiles/firmware/* package/firmware/
 # cp -f $GITHUB_WORKSPACE/configfiles/opwifi package/base-files/files/etc/init.d/opwifi
 # chmod 755 package/base-files/files/etc/init.d/opwifi
@@ -116,8 +116,8 @@ tar -xvf rtl8367b.tar.gz
 # rm -f target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 # cp -f $GITHUB_WORKSPACE/configfiles/init.sh target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 
-rm -f target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
-cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
+# rm -f target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
+# cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/rk35xx/base-files/etc/board.d/02_network
 
 
 # 增加nsy-g68-plus
