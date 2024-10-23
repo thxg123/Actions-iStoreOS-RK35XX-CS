@@ -117,6 +117,7 @@ tar -xvf rtl8367b.tar.gz
 
 # patch -p1 < $GITHUB_WORKSPACE/configfiles/945-add-rtl8367s-sgmii-support.patch
 
+
 # rm -f target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 # cp -f $GITHUB_WORKSPACE/configfiles/init.sh target/linux/rockchip/rk35xx/base-files/lib/board/init.sh
 
@@ -137,7 +138,9 @@ TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-istoreos.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-istoreos.dts
+# cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-istoreos.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-istoreos.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-istoreos2.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-istoreos2.dts
+
 # cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-plus1.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g68-plus1.dts
 
 
