@@ -55,9 +55,9 @@ rockchip_setup_interfaces()
 			"0:lan" "1:lan" "2:lan" "3:lan" "7t@eth1"
 		;;
 	nsy,g68-plus)
-		ucidef_set_interfaces_lan_wan "eth0" "eth1"
+		ucidef_set_interfaces_lan_wan "eth0"
 		ucidef_add_switch "switch0" \
-			"0:lan" "1:lan" "2:lan" "3:lan" "4:wan" "7t@eth0" "7t@eth1"
+			"0:lan" "1:lan" "2:lan" "3:lan" "4:wan" "7t@eth0"
 		;;
 	cyber,cyber3588-aib)
 		ucidef_set_interfaces_lan_wan "eth0" "eth1"
@@ -126,7 +126,8 @@ rockchip_setup_macs()
 	roceos,k40pro|\
 	roceos,k50s|\
 	fastrhino,r66s|\
-	fastrhino,r68s)
+	fastrhino,r68s|\
+	nsy,g68-plus)
 		wan_mac=$(generate_mac_from_mmc)
 		lan_mac=$(macaddr_add "$wan_mac" 1)
 		;;
