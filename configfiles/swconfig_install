@@ -14,48 +14,48 @@ start() {
             if ! [ -s /etc/config/swconfig_lock ]; then
 cat <<EOF > /etc/config/network
 config interface 'loopback'
-	option device 'lo'
-	option proto 'static'
-	option ipaddr '127.0.0.1'
-	option netmask '255.0.0.0'
- 
+        option device 'lo'
+        option proto 'static'
+        option ipaddr '127.0.0.1'
+        option netmask '255.0.0.0'
+
 config globals 'globals'
-	option ula_prefix 'fd27:70fa:5c1d::/48'
- 
+        option ula_prefix 'fd27:70fa:5c1d::/48'
+
 config device 'lan_br'
-	option name 'br-lan'
-	option type 'bridge'
-	list ports 'eth0.1'
- 
+        option name 'br-lan'
+        option type 'bridge'
+        list ports 'eth0.1'
+
 config interface 'lan'
-	option device 'br-lan'
-	option proto 'static'
-	option netmask '255.255.255.0'
-	option ip6assign '60'
-	option ipaddr '192.168.200.1'
- 
+        option device 'br-lan'
+        option proto 'static'
+        option ipaddr '192.168.200.1'
+        option netmask '255.255.255.0'
+        option ip6assign '60'
+
 config interface 'wan'
-	option device 'eth0.2'
-	option proto 'dhcp'
- 
+        option device 'eth0.2'
+        option proto 'dhcp'
+
 config interface 'wan6'
-	option device 'eth0.2'
-	option proto 'dhcpv6'
- 
+        option device 'eth0.2'
+        option proto 'dhcpv6'
+
 config switch
-	option name 'switch0'
-	option reset '1'
-	option enable_vlan '1'
- 
+        option name 'switch0'
+        option reset '1'
+        option enable_vlan '1'
+
 config switch_vlan
-	option device 'switch0'
-	option vlan '1'
-	option ports '0 1 2 3 7t'
- 
+        option device 'switch0'
+        option vlan '1'
+        option ports '0 1 2 3 7t'
+
 config switch_vlan
-	option device 'switch0'
-	option vlan '2'
-	option ports '4 7t'
+        option device 'switch0'
+        option vlan '2'
+        option ports '4 7t'
 EOF
 
 cat <<EOF > /etc/config/dhcp
@@ -87,8 +87,12 @@ config dhcp 'lan'
         option start '100'
         option limit '150'
         option leasetime '12h'
-        option dhcpv4 '1'
-        option dhcpv6 '1'
+        option dhcpv4 'server'
+        option dhcpv6 'server'
+        option ra 'server'
+        option ra_slaac '1'
+        list ra_flags 'managed-config'
+        list ra_flags 'other-config'
 
 config dhcp 'wan'
         option interface 'wan'
