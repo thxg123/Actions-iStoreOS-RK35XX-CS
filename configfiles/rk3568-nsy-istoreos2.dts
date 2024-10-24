@@ -2278,7 +2278,7 @@
 		snps,axi-config = <0x80>;
 		snps,mtl-rx-config = <0x81>;
 		snps,mtl-tx-config = <0x82>;
-		status = "okay";
+		status = "disabled";
 		phy-mode = "sgmii";
 		rockchip,pipegrf = <0x83>;
 		rockchip,xpcs = <0x84>;
