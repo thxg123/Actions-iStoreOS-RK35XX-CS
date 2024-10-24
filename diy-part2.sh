@@ -104,12 +104,12 @@ rm -f target/linux/generic/hack-5.10/744-rtl8366_smi-fix-ce-debugfs.patch
 
 
 
-# 电工大佬的rtl8367b驱动补丁，暂时使用这样替换
+# 电工大佬的rtl8367b驱动资源包，暂时使用这样替换
 wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b.tar.gz
 tar -xvf rtl8367b.tar.gz
 
 
-# openwrt主线rtl8367b驱动补丁，暂时使用这样替换
+# openwrt主线rtl8367b驱动资源包，暂时使用这样替换
 # wget https://github.com/xiaomeng9597/files/releases/download/files/rtl8367b-openwrt.tar.gz
 # tar -xvf rtl8367b-openwrt.tar.gz
 
@@ -130,7 +130,7 @@ echo -e "\\ndefine Device/nsy_g68-plus
 \$(call Device/rk3568)
   DEVICE_VENDOR := NSY
   DEVICE_MODEL := G68PLUS
-  DEVICE_DTS := rk3568-nsy-istoreos
+  DEVICE_DTS := rk3568-nsy-istoreos2
   SUPPORTED_DEVICES += nsy,g68-plus
   DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig
 endef
