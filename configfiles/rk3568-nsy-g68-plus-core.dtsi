@@ -550,7 +550,7 @@ rk809: pmic@20 {
 */	
     //wifi
     wireless_wlan: wireless-wlan {
-        compatible = "wlan-platdata";   
+        compatible = "wlan-platdata";
         wifi_chip_type = "ap6398s";
         rockchip,grf = <&grf>;
         WIFI,poweren_gpio = <&gpio2 RK_PD1 GPIO_ACTIVE_LOW>;
