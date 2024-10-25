@@ -489,7 +489,6 @@
 			opp-microvolt-L2 = <0x106738 0x106738 0x118c30>;
 			opp-microvolt-L3 = <0x100590 0x100590 0x118c30>;
 			clock-latency-ns = <0x9c40>;
-			status = "disabled";
 		};
 
 		opp-1992000000 {
