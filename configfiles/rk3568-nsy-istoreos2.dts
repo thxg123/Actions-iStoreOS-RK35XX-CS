@@ -6728,7 +6728,8 @@
 		//对于主线op的设备树书写方式
 		//realtek,extif = <7 0 0 1 1 1 1 1 1 2>;
 		//======================================================
-		//延迟为0,否则网络很卡.
+
+		//延迟为0,否则网络很卡
 		//realtek,extif = <7 0 0 1 1 1 1 1 1 2>;
 		//realtek,extif1 = <7 0 0 1 1 1 1 1 1 2>;
 		//txdelay, rxdelay, mode, ability.force_mode, ability.txpause, ability.rxpause, ability.link, ability.duplex, speed
