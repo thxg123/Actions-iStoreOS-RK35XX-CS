@@ -10,7 +10,8 @@ board_name() {
 start() {
     local board=$(board_name)
     case "$board" in
-        nsy,g68-plus)
+        nsy,g68-plus|\
+        nsy,g68-white)
             if ! [ -s /etc/config/swconfig_lock ]; then
 cat <<EOF > /etc/config/swconfig_lock
 true / 交换机初始化OK, 4wlan 1an,最右边端口为wlan
