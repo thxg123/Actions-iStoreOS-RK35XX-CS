@@ -5886,10 +5886,10 @@
 		regulator-init-microvolt = <0x118c30>;
 		regulator-min-microvolt = <0xc3500>;
 		regulator-max-microvolt = <0x155cc0>;
-		regulator-always-on;
-		regulator-boot-on;
 		regulator-enable-ramp-delay = <300>;
 		regulator-ramp-delay = <8000>;
+		regulator-always-on;
+		regulator-boot-on;
 		phandle = <0x05>;
 	};
 
