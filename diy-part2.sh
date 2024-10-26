@@ -138,7 +138,7 @@ TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
 
 
 
-# 增加nsy-g68-plus
+# 增加nsy-g68-white
 echo -e "\\ndefine Device/nsy_g68-white
 \$(call Device/rk3568)
   DEVICE_VENDOR := NSY
