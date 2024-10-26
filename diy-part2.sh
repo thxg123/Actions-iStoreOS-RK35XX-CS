@@ -129,7 +129,7 @@ cp -f $GITHUB_WORKSPACE/configfiles/02_network target/linux/rockchip/rk35xx/base
 echo -e "\\ndefine Device/nsy_g68-plus
 \$(call Device/rk3568)
   DEVICE_VENDOR := NSY
-  DEVICE_MODEL := G68PLUS
+  DEVICE_MODEL := G68
   DEVICE_DTS := rk3568-nsy-istoreos
   SUPPORTED_DEVICES += nsy,g68-plus
   DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig
@@ -138,7 +138,22 @@ TARGET_DEVICES += nsy_g68-plus" >> target/linux/rockchip/image/rk35xx.mk
 
 
 
+# 增加nsy-g68-plus
+echo -e "\\ndefine Device/nsy_g68-white
+\$(call Device/rk3568)
+  DEVICE_VENDOR := NSY
+  DEVICE_MODEL := G68
+  DEVICE_DTS := rk3568-nsy-g68-white
+  SUPPORTED_DEVICES += nsy,g68-white
+  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-thermal kmod-switch-rtl8306 kmod-switch-rtl8366-smi kmod-switch-rtl8366rb kmod-switch-rtl8366s kmod-hwmon-pwmfan kmod-leds-pwm kmod-r8125 kmod-r8168 kmod-switch-rtl8367b swconfig kmod-swconfig
+endef
+TARGET_DEVICES += nsy_g68-white" >> target/linux/rockchip/image/rk35xx.mk
+
+
+
 cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-istoreos.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-istoreos.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-white.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g68-white.dts
+
 # cp -f $GITHUB_WORKSPACE/configfiles/rk3568-nsy-g68-plus1.dts target/linux/rockchip/dts/rk3568/rk3568-nsy-g68-plus1.dts
 
 
