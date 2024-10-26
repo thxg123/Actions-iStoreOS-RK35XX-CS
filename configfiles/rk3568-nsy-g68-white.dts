@@ -3117,7 +3117,7 @@
 		reg-names = "pcie-dbi\0pcie-apb";
 		resets = <0x21 0xb1>;
 		reset-names = "pipe";
-		status = "okay";
+		status = "disabled";
 		reset-gpios = <0x34 0x13 0x00>;
 		vpcie3v3-supply = <0xb8>;
 
