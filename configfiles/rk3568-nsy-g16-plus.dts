@@ -1,7 +1,7 @@
 /dts-v1/;
 
 / {
-	compatible = "nsy,g68-white", "rockchip,rk3568";
+	compatible = "nsy,g16-plus", "rockchip,rk3568";
 	interrupt-parent = <0x01>;
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
