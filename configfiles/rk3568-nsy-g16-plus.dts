@@ -1,11 +1,11 @@
 /dts-v1/;
 
 / {
-	compatible = "nsy,g16-plus", "rockchip,rk3568";
+	compatible = "nsy,g68-plus", "rockchip,rk3568";
 	interrupt-parent = <0x01>;
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
-	model = "NSY-G16 AX3000 Router";
+	model = "NSY-G68 AX3000 Router";
 
 	ddr3-params {
 		version = <0x100>;
@@ -1370,7 +1370,7 @@
 					regulator-min-microvolt = <0x1b7740>;
 					regulator-max-microvolt = <0x325aa0>;
 					regulator-name = "vccio_sd";
-					phandle = <0xc5>;
+					phandle = <0xc4>;
 
 					regulator-state-mem {
 						regulator-off-in-suspend;
@@ -1455,7 +1455,7 @@
 					regulator-always-on;
 					regulator-boot-on;
 					regulator-name = "vcc3v3_sd";
-					phandle = <0xc4>;
+					phandle = <0xc3>;
 
 					regulator-state-mem {
 						regulator-off-in-suspend;
@@ -3118,6 +3118,7 @@
 		resets = <0x21 0xb1>;
 		reset-names = "pipe";
 		status = "disabled";
+		rockchip,bifurcation;
 		reset-gpios = <0x34 0x13 0x00>;
 		vpcie3v3-supply = <0xb8>;
 
@@ -3160,7 +3161,8 @@
 		resets = <0x21 0xc1>;
 		reset-names = "pipe";
 		status = "okay";
-		reset-gpios = <0xba 0x14 0x00>;
+		rockchip,bifurcation;
+		reset-gpios = <0x34 0x16 0x00>;
 		vpcie3v3-supply = <0xb8>;
 
 		legacy-interrupt-controller {
@@ -3176,7 +3178,7 @@
 	uio@fe2a0000 {
 		compatible = "rockchip,uio-gmac";
 		reg = <0x00 0xfe2a0000 0x00 0x10000>;
-		rockchip,ethernet = <0xbb>;
+		rockchip,ethernet = <0xba>;
 		status = "disabled";
 	};
 
@@ -3192,9 +3194,9 @@
 		reset-names = "stmmaceth";
 		snps,mixed-burst;
 		snps,tso;
-		snps,axi-config = <0xbc>;
-		snps,mtl-rx-config = <0xbd>;
-		snps,mtl-tx-config = <0xbe>;
+		snps,axi-config = <0xbb>;
+		snps,mtl-rx-config = <0xbc>;
+		snps,mtl-tx-config = <0xbd>;
 		status = "okay";
 		phy-mode = "rgmii";
 		clock_in_out = "output";
@@ -3205,10 +3207,10 @@
 		assigned-clock-parents = <0x21 0x183 0x21 0xb6>;
 		assigned-clock-rates = <0x00 0x7735940>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xbf 0xc0 0xc1 0xc2 0xc3>;
+		pinctrl-0 = <0xbe 0xbf 0xc0 0xc1 0xc2>;
 		tx_delay = <0x3c>;
 		rx_delay = <0x2f>;
-		phandle = <0xbb>;
+		phandle = <0xba>;
 
 		mdio {
 			compatible = "snps,dwmac-mdio";
@@ -3221,12 +3223,12 @@
 			snps,wr_osr_lmt = <0x04>;
 			snps,rd_osr_lmt = <0x08>;
 			snps,blen = <0x00 0x00 0x00 0x00 0x10 0x08 0x04>;
-			phandle = <0xbc>;
+			phandle = <0xbb>;
 		};
 
 		rx-queues-config {
 			snps,rx-queues-to-use = <0x01>;
-			phandle = <0xbd>;
+			phandle = <0xbc>;
 
 			queue0 {
 			};
@@ -3234,7 +3236,7 @@
 
 		tx-queues-config {
 			snps,tx-queues-to-use = <0x01>;
-			phandle = <0xbe>;
+			phandle = <0xbd>;
 
 			queue0 {
 			};
@@ -3264,10 +3266,10 @@
 		cap-sd-highspeed;
 		disable-wp;
 		sd-uhs-sdr104;
-		vmmc-supply = <0xc4>;
-		vqmmc-supply = <0xc5>;
+		vmmc-supply = <0xc3>;
+		vqmmc-supply = <0xc4>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xc6 0xc7 0xc8 0xc9>;
+		pinctrl-0 = <0xc5 0xc6 0xc7 0xc8>;
 	};
 
 	dwmmc@fe2c0000 {
@@ -3371,7 +3373,7 @@
 		mmc-hs200-1_8v;
 		non-removable;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xca 0xcb 0xcc 0xcd>;
+		pinctrl-0 = <0xc9 0xca 0xcb 0xcc>;
 	};
 
 	nandc@fe330000 {
@@ -3524,7 +3526,7 @@
 		interrupts = <0x00 0x34 0x04>;
 		clocks = <0x21 0x3f 0x21 0x43 0x21 0x39>;
 		clock-names = "mclk_tx\0mclk_rx\0hclk";
-		dmas = <0xce 0x00>;
+		dmas = <0xcd 0x00>;
 		dma-names = "tx";
 		resets = <0x21 0x50 0x21 0x51>;
 		reset-names = "tx-m\0rx-m";
@@ -3542,7 +3544,7 @@
 		interrupts = <0x00 0x35 0x04>;
 		clocks = <0x21 0x47 0x21 0x4b 0x21 0x3a>;
 		clock-names = "mclk_tx\0mclk_rx\0hclk";
-		dmas = <0xce 0x02 0xce 0x03>;
+		dmas = <0xcd 0x02 0xcd 0x03>;
 		dma-names = "tx\0rx";
 		resets = <0x21 0x52 0x21 0x53>;
 		reset-names = "tx-m\0rx-m";
@@ -3550,10 +3552,10 @@
 		rockchip,grf = <0x31>;
 		#sound-dai-cells = <0x00>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xcf 0xd0 0xd1 0xd2>;
+		pinctrl-0 = <0xce 0xcf 0xd0 0xd1>;
 		status = "okay";
 		rockchip,clk-trcm = <0x01>;
-		phandle = <0xe1>;
+		phandle = <0xe0>;
 	};
 
 	i2s@fe420000 {
@@ -3562,14 +3564,14 @@
 		interrupts = <0x00 0x36 0x04>;
 		clocks = <0x21 0x4f 0x21 0x4f 0x21 0x3b>;
 		clock-names = "mclk_tx\0mclk_rx\0hclk";
-		dmas = <0xce 0x04 0xce 0x05>;
+		dmas = <0xcd 0x04 0xcd 0x05>;
 		dma-names = "tx\0rx";
 		rockchip,cru = <0x21>;
 		rockchip,grf = <0x31>;
 		rockchip,clk-trcm = <0x01>;
 		#sound-dai-cells = <0x00>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xd3 0xd4 0xd5 0xd6>;
+		pinctrl-0 = <0xd2 0xd3 0xd4 0xd5>;
 		status = "disabled";
 	};
 
@@ -3579,7 +3581,7 @@
 		interrupts = <0x00 0x37 0x04>;
 		clocks = <0x21 0x53 0x21 0x57 0x21 0x3c>;
 		clock-names = "mclk_tx\0mclk_rx\0hclk";
-		dmas = <0xce 0x06 0xce 0x07>;
+		dmas = <0xcd 0x06 0xcd 0x07>;
 		dma-names = "tx\0rx";
 		resets = <0x21 0x55 0x21 0x56>;
 		reset-names = "tx-m\0rx-m";
@@ -3588,7 +3590,7 @@
 		rockchip,clk-trcm = <0x01>;
 		#sound-dai-cells = <0x00>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xd7 0xd8 0xd9 0xda>;
+		pinctrl-0 = <0xd6 0xd7 0xd8 0xd9>;
 		status = "disabled";
 		rockchip,bclk-fs = <0x20>;
 		phandle = <0x13d>;
@@ -3599,10 +3601,10 @@
 		reg = <0x00 0xfe440000 0x00 0x1000>;
 		clocks = <0x21 0x5a 0x21 0x59>;
 		clock-names = "pdm_clk\0pdm_hclk";
-		dmas = <0xce 0x09>;
+		dmas = <0xcd 0x09>;
 		dma-names = "rx";
 		pinctrl-names = "default";
-		pinctrl-0 = <0xdb 0xdc 0xdd 0xde 0xdf 0xe0>;
+		pinctrl-0 = <0xda 0xdb 0xdc 0xdd 0xde 0xdf>;
 		#sound-dai-cells = <0x00>;
 		status = "disabled";
 		phandle = <0x144>;
@@ -3615,7 +3617,7 @@
 		clocks = <0x21 0x5b>;
 		clock-names = "hclk";
 		interrupts = <0x00 0x89 0x04>;
-		rockchip,audio-src = <0xe1>;
+		rockchip,audio-src = <0xe0>;
 		rockchip,det-channel = <0x00>;
 		rockchip,mode = <0x00>;
 		#sound-dai-cells = <0x00>;
@@ -3628,13 +3630,13 @@
 		compatible = "rockchip,rk3568-spdif";
 		reg = <0x00 0xfe460000 0x00 0x1000>;
 		interrupts = <0x00 0x66 0x04>;
-		dmas = <0xce 0x01>;
+		dmas = <0xcd 0x01>;
 		dma-names = "tx";
 		clock-names = "mclk\0hclk";
 		clocks = <0x21 0x5f 0x21 0x5c>;
 		#sound-dai-cells = <0x00>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xe2>;
+		pinctrl-0 = <0xe1>;
 		status = "disabled";
 		phandle = <0x148>;
 	};
@@ -3644,7 +3646,7 @@
 		reg = <0x00 0xfe470000 0x00 0x1000>;
 		clocks = <0x21 0x63 0x21 0x60>;
 		clock-names = "clk\0hclk";
-		dmas = <0xce 0x08>;
+		dmas = <0xcd 0x08>;
 		dma-names = "tx";
 		#sound-dai-cells = <0x00>;
 		rockchip,sample-width-bits = <0x0b>;
@@ -3658,7 +3660,7 @@
 		clocks = <0x21 0x67 0x21 0x66 0x21 0x65 0x21 0x64>;
 		clock-names = "adc\0dac\0i2c\0pclk";
 		pinctrl-names = "default";
-		pinctrl-0 = <0xe3>;
+		pinctrl-0 = <0xe2>;
 		resets = <0x21 0x5f>;
 		reset-names = "reset";
 		rockchip,grf = <0x31>;
@@ -3686,7 +3688,7 @@
 		clock-names = "apb_pclk";
 		#dma-cells = <0x01>;
 		arm,pl330-periph-burst;
-		phandle = <0xce>;
+		phandle = <0xcd>;
 	};
 
 	rkscr@fe560000 {
@@ -3694,7 +3696,7 @@
 		reg = <0x00 0xfe560000 0x00 0x10000>;
 		interrupts = <0x00 0x61 0x04>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xe4>;
+		pinctrl-0 = <0xe3>;
 		clocks = <0x21 0x114>;
 		clock-names = "g_pclk_sim_card";
 		status = "disabled";
@@ -3714,7 +3716,7 @@
 		assigned-clocks = <0x21 0x141>;
 		assigned-clock-rates = <0x8f0d180>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xe5>;
+		pinctrl-0 = <0xe4>;
 	};
 
 	can@fe580000 {
@@ -3731,7 +3733,7 @@
 		assigned-clocks = <0x21 0x143>;
 		assigned-clock-rates = <0x8f0d180>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xe6>;
+		pinctrl-0 = <0xe5>;
 	};
 
 	can@fe590000 {
@@ -3748,7 +3750,7 @@
 		assigned-clocks = <0x21 0x145>;
 		assigned-clock-rates = <0x8f0d180>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xe7>;
+		pinctrl-0 = <0xe6>;
 	};
 
 	i2c@fe5a0000 {
@@ -3758,7 +3760,7 @@
 		clock-names = "i2c\0pclk";
 		interrupts = <0x00 0x2f 0x04>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xe8>;
+		pinctrl-0 = <0xe7>;
 		#address-cells = <0x01>;
 		#size-cells = <0x00>;
 		status = "okay";
@@ -3767,7 +3769,7 @@
 			compatible = "goodix,gt1x";
 			reg = <0x14>;
 			pinctrl-names = "default";
-			pinctrl-0 = <0xe9>;
+			pinctrl-0 = <0xe8>;
 			goodix,rst-gpio = <0x34 0x0e 0x00>;
 			goodix,irq-gpio = <0x34 0x0d 0x08>;
 			power-supply = <0x96>;
@@ -3781,7 +3783,7 @@
 		clock-names = "i2c\0pclk";
 		interrupts = <0x00 0x30 0x04>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xea>;
+		pinctrl-0 = <0xe9>;
 		#address-cells = <0x01>;
 		#size-cells = <0x00>;
 		status = "disabled";
@@ -3794,7 +3796,7 @@
 		clock-names = "i2c\0pclk";
 		interrupts = <0x00 0x31 0x04>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xeb>;
+		pinctrl-0 = <0xea>;
 		#address-cells = <0x01>;
 		#size-cells = <0x00>;
 		status = "disabled";
@@ -3807,7 +3809,7 @@
 		clock-names = "i2c\0pclk";
 		interrupts = <0x00 0x32 0x04>;
 		pinctrl-names = "default";
-		pinctrl-0 = <0xec>;
+		pinctrl-0 = <0xeb>;
 		#address-cells = <0x01>;
 		#size-cells = <0x00>;
 		status = "okay";
@@ -3819,9 +3821,9 @@
 			clocks = <0x21 0xd6>;
 			clock-names = "xvclk";
 			pinctrl-names = "default";
-			pinctrl-0 = <0xed>;
+			pinctrl-0 = <0xec>;
 			reset-gpios = <0xb5 0x0e 0x01>;
-			pwdn-gpios = <0xba 0x0c 0x01>;
+			pwdn-gpios = <0xed 0x0c 0x01>;
 			rockchip,grf = <0x31>;
 			rockchip,camera-module-index = <0x00>;
 			rockchip,camera-module-facing = "back";
@@ -3845,9 +3847,9 @@
 			clock-names = "xvclk";
 			power-domains = <0x23 0x08>;
 			pinctrl-names = "default";
-			pinctrl-0 = <0xed>;
+			pinctrl-0 = <0xec>;
 			reset-gpios = <0xb5 0x0e 0x01>;
-			pwdn-gpios = <0xba 0x0c 0x00>;
+			pwdn-gpios = <0xed 0x0c 0x00>;
 			rockchip,camera-module-index = <0x00>;
 			rockchip,camera-module-facing = "back";
 			rockchip,camera-module-name = "CMK-OT1607-FV1";
@@ -3871,9 +3873,9 @@
 			clock-names = "xvclk";
 			power-domains = <0x23 0x08>;
 			pinctrl-names = "default";
-			pinctrl-0 = <0xed>;
+			pinctrl-0 = <0xec>;
 			reset-gpios = <0xb5 0x0e 0x00>;
-			pwdn-gpios = <0xba 0x0c 0x00>;
+			pwdn-gpios = <0xed 0x0c 0x00>;
 			rockchip,camera-module-index = <0x00>;
 			rockchip,camera-module-facing = "back";
 			rockchip,camera-module-name = "TongJu";
@@ -4629,7 +4631,7 @@
 			#gpio-cells = <0x02>;
 			interrupt-controller;
 			#interrupt-cells = <0x02>;
-			phandle = <0xba>;
+			phandle = <0xed>;
 		};
 
 		pcfg-pull-up {
@@ -4692,7 +4694,7 @@
 
 			acodec-pins {
 				rockchip,pins = <0x01 0x09 0x05 0x131 0x01 0x01 0x05 0x131 0x01 0x00 0x05 0x131 0x01 0x07 0x05 0x131 0x01 0x08 0x05 0x131 0x01 0x03 0x05 0x131 0x01 0x05 0x05 0x131>;
-				phandle = <0xe3>;
+				phandle = <0xe2>;
 			};
 		};
 
@@ -4708,7 +4710,7 @@
 
 			can0m1-pins {
 				rockchip,pins = <0x02 0x02 0x04 0x131 0x02 0x01 0x04 0x131>;
-				phandle = <0xe5>;
+				phandle = <0xe4>;
 			};
 		};
 
@@ -4716,7 +4718,7 @@
 
 			can1m1-pins {
 				rockchip,pins = <0x04 0x12 0x03 0x131 0x04 0x13 0x03 0x131>;
-				phandle = <0xe6>;
+				phandle = <0xe5>;
 			};
 		};
 
@@ -4724,7 +4726,7 @@
 
 			can2m1-pins {
 				rockchip,pins = <0x02 0x09 0x04 0x131 0x02 0x0a 0x04 0x131>;
-				phandle = <0xe7>;
+				phandle = <0xe6>;
 			};
 		};
 
@@ -4732,7 +4734,7 @@
 
 			cif-clk {
 				rockchip,pins = <0x04 0x10 0x01 0x131>;
-				phandle = <0xed>;
+				phandle = <0xec>;
 			};
 		};
 
@@ -4756,22 +4758,22 @@
 
 			emmc-bus8 {
 				rockchip,pins = <0x01 0x0c 0x01 0x132 0x01 0x0d 0x01 0x132 0x01 0x0e 0x01 0x132 0x01 0x0f 0x01 0x132 0x01 0x10 0x01 0x132 0x01 0x11 0x01 0x132 0x01 0x12 0x01 0x132 0x01 0x13 0x01 0x132>;
-				phandle = <0xca>;
+				phandle = <0xc9>;
 			};
 
 			emmc-clk {
 				rockchip,pins = <0x01 0x15 0x01 0x132>;
-				phandle = <0xcb>;
+				phandle = <0xca>;
 			};
 
 			emmc-cmd {
 				rockchip,pins = <0x01 0x14 0x01 0x132>;
-				phandle = <0xcc>;
+				phandle = <0xcb>;
 			};
 
 			emmc-datastrobe {
 				rockchip,pins = <0x01 0x16 0x01 0x131>;
-				phandle = <0xcd>;
+				phandle = <0xcc>;
 			};
 		};
 
@@ -4779,27 +4781,27 @@
 
 			gmac0-miim {
 				rockchip,pins = <0x02 0x13 0x02 0x131 0x02 0x14 0x02 0x131>;
-				phandle = <0xbf>;
+				phandle = <0xbe>;
 			};
 
 			gmac0-rx-bus2 {
 				rockchip,pins = <0x02 0x0e 0x01 0x131 0x02 0x0f 0x02 0x131 0x02 0x10 0x02 0x131>;
-				phandle = <0xc1>;
+				phandle = <0xc0>;
 			};
 
 			gmac0-tx-bus2 {
 				rockchip,pins = <0x02 0x0b 0x01 0x134 0x02 0x0c 0x01 0x134 0x02 0x0d 0x01 0x131>;
-				phandle = <0xc0>;
+				phandle = <0xbf>;
 			};
 
 			gmac0-rgmii-clk {
 				rockchip,pins = <0x02 0x05 0x02 0x131 0x02 0x08 0x02 0x135>;
-				phandle = <0xc2>;
+				phandle = <0xc1>;
 			};
 
 			gmac0-rgmii-bus {
 				rockchip,pins = <0x02 0x03 0x02 0x131 0x02 0x04 0x02 0x131 0x02 0x06 0x02 0x134 0x02 0x07 0x02 0x134>;
-				phandle = <0xc3>;
+				phandle = <0xc2>;
 			};
 		};
 
@@ -4861,7 +4863,7 @@
 
 			i2c1-xfer {
 				rockchip,pins = <0x00 0x0b 0x01 0x136 0x00 0x0c 0x01 0x136>;
-				phandle = <0xe8>;
+				phandle = <0xe7>;
 			};
 		};
 
@@ -4869,7 +4871,7 @@
 
 			i2c2m0-xfer {
 				rockchip,pins = <0x00 0x0d 0x01 0x136 0x00 0x0e 0x01 0x136>;
-				phandle = <0xea>;
+				phandle = <0xe9>;
 			};
 		};
 
@@ -4877,7 +4879,7 @@
 
 			i2c3m0-xfer {
 				rockchip,pins = <0x01 0x01 0x01 0x136 0x01 0x00 0x01 0x136>;
-				phandle = <0xeb>;
+				phandle = <0xea>;
 			};
 		};
 
@@ -4885,7 +4887,7 @@
 
 			i2c4m0-xfer {
 				rockchip,pins = <0x04 0x0b 0x01 0x136 0x04 0x0a 0x01 0x136>;
-				phandle = <0xec>;
+				phandle = <0xeb>;
 			};
 		};
 
@@ -4901,7 +4903,7 @@
 
 			i2s1m0-lrcktx {
 				rockchip,pins = <0x01 0x05 0x01 0x136>;
-				phandle = <0xd0>;
+				phandle = <0xcf>;
 			};
 
 			i2s1m0-mclk {
@@ -4911,17 +4913,17 @@
 
 			i2s1m0-sclktx {
 				rockchip,pins = <0x01 0x03 0x01 0x136>;
-				phandle = <0xcf>;
+				phandle = <0xce>;
 			};
 
 			i2s1m0-sdi0 {
 				rockchip,pins = <0x01 0x0b 0x01 0x131>;
-				phandle = <0xd1>;
+				phandle = <0xd0>;
 			};
 
 			i2s1m0-sdo0 {
 				rockchip,pins = <0x01 0x07 0x01 0x131>;
-				phandle = <0xd2>;
+				phandle = <0xd1>;
 			};
 		};
 
@@ -4929,22 +4931,22 @@
 
 			i2s2m0-lrcktx {
 				rockchip,pins = <0x02 0x13 0x01 0x136>;
-				phandle = <0xd4>;
+				phandle = <0xd3>;
 			};
 
 			i2s2m0-sclktx {
 				rockchip,pins = <0x02 0x12 0x01 0x136>;
-				phandle = <0xd3>;
+				phandle = <0xd2>;
 			};
 
 			i2s2m0-sdi {
 				rockchip,pins = <0x02 0x15 0x01 0x131>;
-				phandle = <0xd5>;
+				phandle = <0xd4>;
 			};
 
 			i2s2m0-sdo {
 				rockchip,pins = <0x02 0x14 0x01 0x131>;
-				phandle = <0xd6>;
+				phandle = <0xd5>;
 			};
 		};
 
@@ -4952,22 +4954,22 @@
 
 			i2s3m0-lrck {
 				rockchip,pins = <0x03 0x04 0x04 0x136>;
-				phandle = <0xd8>;
+				phandle = <0xd7>;
 			};
 
 			i2s3m0-sclk {
 				rockchip,pins = <0x03 0x03 0x04 0x136>;
-				phandle = <0xd7>;
+				phandle = <0xd6>;
 			};
 
 			i2s3m0-sdi {
 				rockchip,pins = <0x03 0x06 0x04 0x131>;
-				phandle = <0xd9>;
+				phandle = <0xd8>;
 			};
 
 			i2s3m0-sdo {
 				rockchip,pins = <0x03 0x05 0x04 0x131>;
-				phandle = <0xda>;
+				phandle = <0xd9>;
 			};
 		};
 
@@ -4983,32 +4985,32 @@
 
 			pdmm0-clk {
 				rockchip,pins = <0x01 0x06 0x03 0x131>;
-				phandle = <0xdb>;
+				phandle = <0xda>;
 			};
 
 			pdmm0-clk1 {
 				rockchip,pins = <0x01 0x04 0x03 0x131>;
-				phandle = <0xdc>;
+				phandle = <0xdb>;
 			};
 
 			pdmm0-sdi0 {
 				rockchip,pins = <0x01 0x0b 0x02 0x131>;
-				phandle = <0xdd>;
+				phandle = <0xdc>;
 			};
 
 			pdmm0-sdi1 {
 				rockchip,pins = <0x01 0x0a 0x03 0x131>;
-				phandle = <0xde>;
+				phandle = <0xdd>;
 			};
 
 			pdmm0-sdi2 {
 				rockchip,pins = <0x01 0x09 0x03 0x131>;
-				phandle = <0xdf>;
+				phandle = <0xde>;
 			};
 
 			pdmm0-sdi3 {
 				rockchip,pins = <0x01 0x08 0x03 0x131>;
-				phandle = <0xe0>;
+				phandle = <0xdf>;
 			};
 		};
 
@@ -5166,7 +5168,7 @@
 
 			scr-pins {
 				rockchip,pins = <0x01 0x02 0x03 0x131 0x01 0x07 0x03 0x133 0x01 0x03 0x03 0x133 0x01 0x05 0x03 0x131>;
-				phandle = <0xe4>;
+				phandle = <0xe3>;
 			};
 		};
 
@@ -5174,22 +5176,22 @@
 
 			sdmmc0-bus4 {
 				rockchip,pins = <0x01 0x1d 0x01 0x132 0x01 0x1e 0x01 0x132 0x01 0x1f 0x01 0x132 0x02 0x00 0x01 0x132>;
-				phandle = <0xc6>;
+				phandle = <0xc5>;
 			};
 
 			sdmmc0-clk {
 				rockchip,pins = <0x02 0x02 0x01 0x132>;
-				phandle = <0xc7>;
+				phandle = <0xc6>;
 			};
 
 			sdmmc0-cmd {
 				rockchip,pins = <0x02 0x01 0x01 0x132>;
-				phandle = <0xc8>;
+				phandle = <0xc7>;
 			};
 
 			sdmmc0-det {
 				rockchip,pins = <0x00 0x04 0x01 0x133>;
-				phandle = <0xc9>;
+				phandle = <0xc8>;
 			};
 		};
 
@@ -5215,7 +5217,7 @@
 
 			spdifm1-tx {
 				rockchip,pins = <0x03 0x15 0x02 0x131>;
-				phandle = <0xe2>;
+				phandle = <0xe1>;
 			};
 		};
 
@@ -5449,7 +5451,7 @@
 
 			touch-gpio {
 				rockchip,pins = <0x00 0x0d 0x00 0x133 0x00 0x0e 0x00 0x131>;
-				phandle = <0xe9>;
+				phandle = <0xe8>;
 			};
 		};
 
@@ -5627,7 +5629,7 @@
 		hp-det-gpio = <0xb5 0x12 0x01>;
 		rockchip,format = "i2s";
 		rockchip,mclk-fs = <0x100>;
-		rockchip,cpu = <0xe1>;
+		rockchip,cpu = <0xe0>;
 		rockchip,codec = <0x146>;
 		pinctrl-names = "default";
 		pinctrl-0 = <0x147>;
@@ -5659,7 +5661,7 @@
 		status = "disabled";
 		compatible = "rockchip,multicodecs-card";
 		rockchip,card-name = "rockchip,rk3568-vad";
-		rockchip,cpu = <0xe1>;
+		rockchip,cpu = <0xe0>;
 		rockchip,codec = <0x146 0x14a>;
 	};
 
