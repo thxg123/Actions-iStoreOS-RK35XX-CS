@@ -1,11 +1,11 @@
 /dts-v1/;
 
 / {
-	compatible = "nsy,g68-plus", "rockchip,rk3568";
+	compatible = "nsy,g16-plus", "rockchip,rk3568";
 	interrupt-parent = <0x01>;
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
-	model = "NSY-G68 AX3000 Router";
+	model = "NSY-G16 AX3000 Router";
 
 	ddr3-params {
 		version = <0x100>;
