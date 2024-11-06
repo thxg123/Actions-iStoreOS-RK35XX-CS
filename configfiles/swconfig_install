@@ -20,7 +20,7 @@ EOF
                 /etc/init.d/dnsmasq restart
                 echo "交换机初始化OK, 4wlan 1an,最右边端口为wlan"
             else
-                echo "网络配置文件已初始化过，不再重复执行"
+                echo "交换机已初始化过，不再重复执行"
             fi
             ;;
         *)
