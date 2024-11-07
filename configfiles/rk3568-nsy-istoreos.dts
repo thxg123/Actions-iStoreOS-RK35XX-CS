@@ -1277,7 +1277,7 @@
 					regulator-boot-on;
 					regulator-min-microvolt = <0x7a120>;
 					regulator-max-microvolt = <0x149970>;
-					regulator-init-microvolt = <0xf4240>;
+					regulator-init-microvolt = <0xdbba0>;
 					regulator-ramp-delay = <0x1771>;
 					regulator-initial-mode = <0x02>;
 					regulator-name = "vdd_gpu";
@@ -1304,7 +1304,7 @@
 					regulator-boot-on;
 					regulator-min-microvolt = <0x7a120>;
 					regulator-max-microvolt = <0x149970>;
-					regulator-init-microvolt = <0xf4240>;
+					regulator-init-microvolt = <0xdbba0>;
 					regulator-ramp-delay = <0x1771>;
 					regulator-initial-mode = <0x02>;
 					regulator-name = "vdd_npu";
