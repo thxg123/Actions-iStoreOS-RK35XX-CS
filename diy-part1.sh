@@ -19,4 +19,4 @@ sed -i "s/OPENWRT_RELEASE.*/OPENWRT_RELEASE=\"%D %V ${date_version} by ${author}
 # 拉取我的软件包仓库
 sed -i '$a src-git xmpackage https://github.com/xiaomeng9597/openwrt-packages2.git;main' feeds.conf.default
 
-sed -i "s/https:\/\/github.com\/linkease\/istore.git/http:\/\/github.com\/xiaomeng9597\/istore.git/g" feeds.conf.default
+sed -i "s/https:\/\/github.com\/linkease\/istore.git;main/http:\/\/github.com\/xiaomeng9597\/istore.git/g" feeds.conf.default
