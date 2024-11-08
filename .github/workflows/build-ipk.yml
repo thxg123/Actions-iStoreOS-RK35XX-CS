@@ -143,7 +143,7 @@ jobs:
         cd openwrt
         find openwrt/feeds -name 'Makefile' | grep 'luci-app-store'
         ls feeds/store/luci/luci-app-store
-        ls openwrt/feeds/store/luci/luci-app-store
+        make -C feeds/store/luci/luci-app-store compile
 
 
 
