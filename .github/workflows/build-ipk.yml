@@ -137,15 +137,14 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: 编译插件为 IPK 文件
-      id: compile
+    - name: 编译IPK包
+      id: compile_ipk
       run: |
         cd openwrt
-        find feeds -name 'Makefile' | grep 'luci-app-store'
-        ls feeds/store/luci/luci-app-store
-        make -C feeds/store/luci/luci-app-store compile
-
-
+        make package/luci-app-store/compile V=s QUILT=1 || make package/luci-app-store/compile/compile V=s
+        # 设置输出变量，以便后续步骤使用
+        echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+        echo "status=success" >> ${GITHUB_OUTPUT}
 
 
     - name: 检查磁盘空间
