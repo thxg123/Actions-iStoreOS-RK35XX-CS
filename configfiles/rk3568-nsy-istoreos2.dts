@@ -6740,7 +6740,7 @@
 		realtek,extif2 = <0 0 1 1 1 1 1 1 2>;
 		status = "okay";
 	};
-	
+
 	fiq-debugger {
 		compatible = "rockchip,fiq-debugger";
 		rockchip,serial-id = <0x02>;
