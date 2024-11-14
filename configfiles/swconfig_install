@@ -14,11 +14,11 @@ start() {
         nsy,g16-plus)
             if ! [ -s /etc/config/swconfig_lock ]; then
 cat <<EOF > /etc/config/swconfig_lock
-true / 交换机初始化OK, 4wlan 1an，最右边端口为wlan
+true / 交换机初始化OK, 4wlan 1lan，最右边端口为wlan
 EOF
                 /etc/init.d/network restart
                 /etc/init.d/dnsmasq restart
-                echo "交换机初始化OK, 4wlan 1an，最右边端口为wlan"
+                echo "交换机初始化OK, 4wlan 1lan，最右边端口为wlan"
             else
                 echo "交换机已初始化过，不再重复执行"
             fi
