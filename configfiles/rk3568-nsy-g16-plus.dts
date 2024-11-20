@@ -5489,6 +5489,14 @@
 				phandle = <0x151>;
 			};
 		};
+
+		leds {
+
+			led-work-enable-h {
+				rockchip,pins = <0x00 0x10 0x00 0x131>;
+				phandle = <0x159>;
+			};
+		};
 	};
 
 	adc-keys {
@@ -5593,9 +5601,14 @@
 
 	leds {
 		compatible = "gpio-leds";
-		work {
+		led-work {
+			label = "led-work";
+			default-state = "on";
 			gpios = <0x34 0x10 0x00>;
 			linux,default-trigger = "heartbeat";
+			pinctrl-names = "default";
+			pinctrl-0 = <0x159>;
+			status = "okay";
 		};
 	};
 
