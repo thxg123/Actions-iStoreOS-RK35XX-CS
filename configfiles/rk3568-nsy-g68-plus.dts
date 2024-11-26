@@ -14,7 +14,7 @@
 
 / {
 	model = "NSY-G68 AX3000 Router";
-	compatible = "nsy,g68", "rockchip,rk3568-mt7916", "rockchip,rk3568";
+	compatible = "nsy,g68-plus", "rockchip,rk3568";
 
 	chosen: chosen {
 		bootargs = "earlycon=uart8250,mmio32,0xfe660000 console=ttyFIQ0 root=PARTUUID=614e0000-0000 rootwait coherent_pool=1m cgroup_enable=memory";
