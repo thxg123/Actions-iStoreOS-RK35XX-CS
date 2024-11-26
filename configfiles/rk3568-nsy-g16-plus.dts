@@ -371,6 +371,7 @@
 			clocks = <0x02 0x00>;
 			operating-points-v2 = <0x03>;
 			cpu-idle-states = <0x04>;
+			cpu-supply = <0x05>;
 			phandle = <0x0b>;
 		};
 
@@ -382,6 +383,7 @@
 			clocks = <0x02 0x00>;
 			operating-points-v2 = <0x03>;
 			cpu-idle-states = <0x04>;
+			cpu-supply = <0x05>;
 			phandle = <0x0c>;
 		};
 
@@ -393,6 +395,7 @@
 			clocks = <0x02 0x00>;
 			operating-points-v2 = <0x03>;
 			cpu-idle-states = <0x04>;
+			cpu-supply = <0x05>;
 			phandle = <0x0d>;
 		};
 
@@ -4111,7 +4114,7 @@
 		dmas = <0x3d 0x10 0x3d 0x11>;
 		pinctrl-names = "default";
 		pinctrl-0 = <0x10a 0x10b>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	serial@fe6d0000 {
@@ -5492,8 +5495,8 @@
 
 		leds {
 
-			led-work-enable-h {
-				rockchip,pins = <0x00 0x10 0x00 0x131>;
+			led-power-en {
+				rockchip,pins = <0x00 0x14 0x00 0x131>;
 				phandle = <0x159>;
 			};
 		};
@@ -5601,11 +5604,10 @@
 
 	leds {
 		compatible = "gpio-leds";
-		led-work {
-			label = "led-work";
+		led-power {
+			label = "led-power";
 			default-state = "on";
-			gpios = <0x34 0x10 0x00>;
-			linux,default-trigger = "heartbeat";
+			gpios = <0x34 0x14 0x00>;
 			pinctrl-names = "default";
 			pinctrl-0 = <0x159>;
 			status = "okay";
@@ -5905,7 +5907,7 @@
 	};
 
 	chosen {
-		bootargs = "earlycon=uart8250,mmio32,0xfe660000 console=ttyFIQ0 rootwait";
+		bootargs = "earlycon=uart8250,mmio32,0xfe660000 console=ttyFIQ0 root=PARTUUID=614e0000-0000 rw rootwait";
 	};
 
 	fiq-debugger {
