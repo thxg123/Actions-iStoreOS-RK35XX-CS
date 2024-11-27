@@ -5613,7 +5613,6 @@
 			gpios = <0x34 0x14 0x00>;
 			pinctrl-names = "default";
 			pinctrl-0 = <0x159>;
-			status = "okay";
 		};
 	};
 
