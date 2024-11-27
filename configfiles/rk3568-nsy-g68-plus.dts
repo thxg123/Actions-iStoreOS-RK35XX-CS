@@ -17,10 +17,10 @@
 	compatible = "nsy,g68-plus", "rockchip,rk3568";
 
 	chosen: chosen {
-		bootargs = "earlycon=uart8250,mmio32,0xfe660000 console=ttyFIQ0 root=PARTUUID=614e0000-0000 rootwait coherent_pool=1m cgroup_enable=memory";
-		bootargs-append = " block2mtd.block2mtd=/dev/mmcblk0p6,65536,factory";
+		bootargs = "earlycon=uart8250,mmio32,0xfe660000 console=ttyFIQ0 root=PARTUUID=614e0000-0000 rw rootwait";
 	};
 
+/*
 	rtl8367s@0 {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -71,6 +71,37 @@
 			};
 		};
 	};
+*/
+
+
+
+
+	rtlgsw@0 {
+		compatible = "realtek,rtl8367b", "realtek,rtl8367s";
+		realtek,mdio = <&mdio0>;
+		mii-bus = <&mdio0>;
+		realtek,id = <29>;
+		phy-id = <29>;
+		cpu_port = <0x07>;
+
+		//======================================================
+		//对于主线op的设备树书写方式
+		//realtek,extif = <7 0 0 1 1 1 1 1 1 2>;
+		//======================================================
+
+		//延迟为0,否则网络很卡
+		//realtek,extif = <7 0 0 1 1 1 1 1 1 2>;
+		//realtek,extif1 = <7 0 0 1 1 1 1 1 1 2>;
+		//txdelay, rxdelay, mode, ability.force_mode, ability.txpause, ability.rxpause, ability.link, ability.duplex, speed
+
+		//sgmii,
+		realtek,extif1 = <0 0 11 1 1 1 1 1 2>;
+		//rgmii
+		realtek,extif2 = <0 0 1 1 1 1 1 1 2>;
+		status = "okay";
+	};
+	
+
 
 	fiq-debugger {
 		compatible = "rockchip,fiq-debugger";
