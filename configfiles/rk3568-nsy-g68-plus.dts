@@ -421,6 +421,7 @@
 		nvmem-cells = <0x06 0x07 0x08 0x09>;
 		nvmem-cell-names = "leakage\0pvtm\0mbist-vmin\0opp-info";
 		rockchip,max-volt = <0x118c30>;
+		rockchip,pvtm-voltage-sel = <0x00 0x14820 0x00 0x14821 0x153d8 0x01 0x153d9 0x16378 0x02 0x16379 0x186a0 0x03>;
 		rockchip,pvtm-freq = <0x639c0>;
 		rockchip,pvtm-volt = <0xdbba0>;
 		rockchip,pvtm-ch = <0x00 0x05>;
@@ -545,7 +546,7 @@
 			};
 
 			route-edp {
-				status = "okay";
+				status = "disabled";
 				logo,uboot = "logo.bmp";
 				logo,kernel = "logo_kernel.bmp";
 				logo,mode = "center";
@@ -554,7 +555,7 @@
 			};
 
 			route-hdmi {
-				status = "okay";
+				status = "disabled";
 				logo,uboot = "logo.bmp";
 				logo,kernel = "logo_kernel.bmp";
 				logo,mode = "center";
