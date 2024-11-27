@@ -20,61 +20,6 @@
 		bootargs = "earlycon=uart8250,mmio32,0xfe660000 console=ttyFIQ0 root=PARTUUID=614e0000-0000 rw rootwait";
 	};
 
-/*
-	rtl8367s@0 {
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		compatible = "realtek,rtl83xx-gsw";
-		realtek,mdio = <&mdio0>;
-		realtek,phy_addr = <29>;
-
-		pinctrl-names = "default";
-		pinctrl-0 = <&rtl8367s_switch0_int>;
-
-		interrupt-parent = <&gpio3>;
-		interrupts = <RK_PC0 IRQ_TYPE_LEVEL_LOW>;
-
-		realtek,cpuport = <5>;
-		realtek,reset-pin = <&gpio1 RK_PB0 GPIO_ACTIVE_LOW>;
-		realtek,led_active_low;
-
-		/* mode: off link_act link_tx link_rx */
-		realtek,led_group_0 = "spd_1000";
-		realtek,led_group_1 = "link_tx";
-
-		status = "okay";
-
-		extif0: extif@0 {
-			compatible = "realtek,extif";
-			reg = <0>;
-			phy-mode = "sgmii";
-			realtek,tx-pause;
-			realtek,rx-pause;
-
-			fixed-link {
-				speed = <1000>;
-				full-duplex;
-			};
-		};
-
-		extif1: extif@1 {
-			compatible = "realtek,extif";
-			reg = <1>;
-			phy-mode = "rgmii";
-			realtek,tx-pause;
-			realtek,rx-pause;
-
-			fixed-link {
-				speed = <1000>;
-				full-duplex;
-			};
-		};
-	};
-*/
-
-
-
 
 	rtlgsw@0 {
 		compatible = "realtek,rtl8367b", "realtek,rtl8367s";
@@ -101,7 +46,6 @@
 		status = "okay";
 	};
 	
-
 
 	fiq-debugger {
 		compatible = "rockchip,fiq-debugger";
@@ -500,12 +444,6 @@ status = "okay";
 	usb {
 		vcc5v0_host_en: vcc5v0-host-en {
 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-		};
-	};
-
-	rtl83xx_switches {
-		rtl8367s_switch0_int: switch0-int {
-			rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 };
