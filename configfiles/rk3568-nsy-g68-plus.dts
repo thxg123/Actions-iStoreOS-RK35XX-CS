@@ -257,6 +257,22 @@
 		status = "okay";
 	};
 
+	vdd_gpu: vdd-gpu {
+		compatible = "pwm-regulator";
+		pwms = <&pwm2 0 5000 1>;
+		regulator-name = "vdd_gpu";
+		regulator-min-microvolt = <1200000>;
+		regulator-max-microvolt = <1200000>;
+		regulator-init-microvolt = <900000>;
+		regulator-ramp-delay = <6001>;
+		regulator-initial-mode = <0x2>;
+		regulator-always-on;
+		regulator-boot-on;
+		regulator-settling-time-up-us = <250>;
+		pwm-supply = <&vcc5v0_sys>;
+		status = "okay";
+	};
+
 	vcc_ddr: vcc-ddr {
 		regulator-always-on;
 		regulator-boot-on;
@@ -269,7 +285,7 @@
 
 	vdd_npu: vdd-npu {
 		compatible = "pwm-regulator";
-		pwms = <&pwm2 0 5000 1>;
+		pwms = <&pwm3 0 5000 1>;
 		regulator-name = "vdd_npu";
 		regulator-min-microvolt = <800000>;
 		regulator-max-microvolt = <1200000>;
@@ -301,6 +317,11 @@
 
 &dmc {
 	center-supply = <&vdd_logic>;
+	status = "okay";
+};
+
+&gpu {
+	mali-supply = <&vdd_gpu>;
 	status = "okay";
 };
 
